@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, MessageCircle, FileText } from "lucide-react";
+import { MessageCircle, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const heroImages = [
@@ -91,9 +91,6 @@ export default function Hero() {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
                 className="flex flex-wrap items-center justify-center gap-4"
               >
-                <a href="tel:010-6573-5535" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-neutral-900 text-sm font-bold uppercase tracking-widest hover:bg-neutral-100 transition-all w-full sm:w-auto rounded-lg shadow-xl">
-                  <Phone size={18} /> 전화상담
-                </a>
                 <a href="https://open.kakao.com/me/yoohan7923" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FEE500] text-[#3C1E1E] text-sm font-bold uppercase tracking-widest hover:bg-[#F9E000] transition-all w-full sm:w-auto rounded-lg shadow-xl">
                   <MessageCircle size={18} fill="currentColor" /> 카톡상담
                 </a>

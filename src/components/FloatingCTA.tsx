@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 
@@ -24,19 +24,19 @@ export default function FloatingCTA() {
             </motion.div>
             
             <motion.a
-              href="tel:010-6573-5535"
+              href="#quote"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05, x: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-2xl text-neutral-900 border border-neutral-100 transition-all"
+              className="group flex items-center gap-3 bg-red-600 pr-6 pl-2 py-2 rounded-full shadow-2xl text-white border border-red-500 transition-all"
             >
-              <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center shadow-sm">
-                <Phone size={24} fill="currentColor" />
+              <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-sm">
+                <FileText size={24} />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold opacity-60 leading-none mb-1">Phone</span>
-                <span className="text-sm font-bold leading-none">010-6573-5535</span>
+                <span className="text-[10px] font-bold opacity-80 leading-none mb-1">Quote</span>
+                <span className="text-sm font-bold leading-none">빠른 견적받기</span>
               </div>
             </motion.a>
 

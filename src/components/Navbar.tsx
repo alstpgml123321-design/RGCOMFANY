@@ -42,9 +42,6 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-6">
-          <a href="tel:010-6573-5535" className="flex items-center gap-2 text-neutral-900 hover:text-red-600 transition-colors">
-            <span className="text-xs font-bold tracking-widest uppercase">010-6573-5535</span>
-          </a>
           <a href="#quote" className="px-6 py-3 bg-red-600 text-white font-bold rounded-lg text-xs tracking-widest uppercase hover:bg-red-700 transition-colors duration-300 shadow-lg shadow-red-600/20">
             빠른 견적받기
           </a>
