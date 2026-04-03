@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Code Pro", "Noto Sans KR", ui-monospace, SFMono-Regular, monospace;
+  --font-heading: "Nunito", "Noto Sans KR", sans-serif;
+  
+  --shadow-3d: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+               rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+               rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+               rgba(0, 0, 0, 0.06) 0px 2px 1px,
+               rgba(0, 0, 0, 0.09) 0px 4px 2px,
+               rgba(0, 0, 0, 0.09) 0px 8px 4px,
+               rgba(0, 0, 0, 0.09) 0px 16px 8px,
+               rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+@layer base {
+  body {
+    @apply bg-[#f5f5f5] text-[#171717] antialiased overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .shadow-custom-3d {
+    box-shadow: var(--shadow-3d);
+    @apply transition-transform duration-200 active:translate-y-[2px];
+  }
+  
+  .shadow-custom-3d:active {
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 15px 0px inset, rgba(0, 0, 0, 0.1) 0px -20px 20px 0px inset;
+  }
+
+  /* Custom Range Slider */
+  input[type=range] {
+    @apply appearance-none bg-transparent;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    @apply appearance-none h-5 w-5 rounded-full bg-red-500 cursor-pointer -mt-2 shadow-md;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track {
+    @apply w-full h-1 cursor-pointer bg-orange-200 rounded-sm;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}

@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "Quote": {
+      "title": "Quote Request",
+      "description": "A request for a vehicle quote from a user.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "User's name" },
+        "phone": { "type": "string", "description": "User's phone number" },
+        "vehicle": { "type": "string", "description": "Requested vehicle model" },
+        "type": { "type": "string", "enum": ["장기렌트", "리스"], "description": "Type of service" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission timestamp" }
+      },
+      "required": ["name", "phone", "vehicle", "type", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/quotes/{quoteId}": {
+      "schema": "Quote",
+      "description": "Collection of quote requests."
+    }
+  }
+}

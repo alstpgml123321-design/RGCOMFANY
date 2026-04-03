@@ -1,0 +1,110 @@
+import { motion, AnimatePresence } from "motion/react";
+import { Phone, MessageCircle, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
+
+const heroImages = [
+  "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MDNfNTAg/MDAxNzc1MTc2MjM2ODgw.ohNElcCPJ6rqGmp1ogT6wuEhx0XzglL7TQcW-YCIuSkg.G3kFf1a8d61pGGIaLXwUrjvHs_6Q2_d19fOrec-oYFog.JPEG/KakaoTalk_20260403_092957322.jpg?type=w1600"
+];
+
+export default function Hero() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <header className="relative h-[60vh] md:h-screen min-h-[500px] md:min-h-[700px] w-full overflow-hidden bg-black">
+      {/* Hero Background Slider */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="relative w-full h-full flex items-center justify-center"
+          >
+            {/* Blurred Background to fill gaps */}
+            <img 
+              src={heroImages[currentImage]} 
+              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110"
+              referrerPolicy="no-referrer"
+              alt=""
+            />
+            {/* Main Contained Image */}
+            <img 
+              src={heroImages[currentImage]} 
+              alt={`RGCOMPANY Hero Background ${currentImage + 1}`} 
+              className="relative z-10 w-full h-full object-contain md:object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/20 z-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20"></div>
+      </div>
+
+      {/* Hero Content */}
+      <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none pb-24 md:pb-32">
+        <div className="w-full px-6 md:px-20 pointer-events-auto text-center">
+          <div className="max-w-[1792px] mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
+                <span className="inline-flex items-center gap-2 text-red-500 text-sm font-bold uppercase tracking-[0.2em] mb-6 bg-white/10 backdrop-blur px-4 py-2 rounded-full">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                  신차 장기렌트 / 리스 / 저신용도 가능
+                </span>
+              </motion.div>
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[1.1] text-white mb-8 drop-shadow-lg"
+              >
+                초기비용 <span className="text-red-500">0원</span>,<br />
+                지금 바로 출고
+              </motion.h1>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+                className="text-neutral-200 font-light text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto drop-shadow-md"
+              >
+                대한민국 1등 견적 비교 시스템. <br className="hidden md:block" />
+                복잡한 서류 없이 30분 내 승인, 전국 어디든 즉시 출고 가능합니다.
+              </motion.p>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+                className="flex flex-wrap items-center justify-center gap-4"
+              >
+                <a href="tel:010-6573-5535" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-neutral-900 text-sm font-bold uppercase tracking-widest hover:bg-neutral-100 transition-all w-full sm:w-auto rounded-lg shadow-xl">
+                  <Phone size={18} /> 전화상담
+                </a>
+                <a href="https://open.kakao.com/me/yoohan7923" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FEE500] text-[#3C1E1E] text-sm font-bold uppercase tracking-widest hover:bg-[#F9E000] transition-all w-full sm:w-auto rounded-lg shadow-xl">
+                  <MessageCircle size={18} fill="currentColor" /> 카톡상담
+                </a>
+                <a href="#quote" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-all w-full sm:w-auto rounded-lg shadow-xl">
+                  <FileText size={18} /> 견적받기
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

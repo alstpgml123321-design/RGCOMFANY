@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    // Collection: quotes
+    // Fields:
+    //   - name: string (required)
+    //   - phone: string (required)
+    //   - vehicle: string (required)
+    //   - type: string (required, '장기렌트' or '리스')
+    //   - createdAt: timestamp (required)
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && 
+        (request.auth.token.email == "alstpgml123321@gmail.com" && request.auth.token.email_verified == true);
+    }
+
+    function isValidQuote(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
+             data.phone is string && data.phone.size() > 0 && data.phone.size() < 20 &&
+             data.vehicle is string && data.vehicle.size() > 0 && data.vehicle.size() < 100 &&
+             data.type in ['장기렌트', '리스'] &&
+             data.createdAt is timestamp;
+    }
+
+    match /quotes/{quoteId} {
+      allow create: if isValidQuote(request.resource.data);
+      allow read, list: if isAdmin();
+      allow update, delete: if isAdmin();
+    }
+  }
+}
