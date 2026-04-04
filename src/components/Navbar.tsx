@@ -77,13 +77,19 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 top-[80px] bg-white z-[90] lg:hidden overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "calc(100vh - 80px)" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+            className="fixed inset-0 top-[80px] bg-white z-[90] lg:hidden overflow-hidden"
           >
-            <div className="flex flex-col p-6 gap-2">
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="flex flex-col p-6 gap-2 h-full overflow-y-auto"
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -105,7 +111,7 @@ export default function Navbar() {
                 </a>
               ))}
               
-              <div className="mt-8 pt-8 border-t border-neutral-100">
+              <div className="mt-auto pt-8 border-t border-neutral-100 pb-10">
                 <a 
                   href="#quote"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -120,7 +126,7 @@ export default function Navbar() {
                   <p>© 2026 RGCOMPANY. All rights reserved.</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
