@@ -29,14 +29,14 @@ export default function FloatingCTA() {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05, x: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-red-600 pr-6 pl-2 py-2 rounded-full shadow-2xl text-white border border-red-500 transition-all"
+              className="group flex items-center gap-3 bg-red-600 pr-5 pl-2 py-1.5 rounded-full shadow-2xl text-white border border-red-500 transition-all"
             >
-              <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-sm">
-                <FileText size={24} />
+              <div className="w-10 h-10 bg-white text-red-600 rounded-full flex items-center justify-center shadow-sm">
+                <FileText size={18} />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold opacity-80 leading-none mb-1">Quote</span>
-                <span className="text-sm font-bold leading-none">빠른 견적받기</span>
+                <span className="text-[9px] font-bold opacity-80 leading-none mb-0.5 uppercase">Quote</span>
+                <span className="text-xs font-bold leading-none">빠른 견적받기</span>
               </div>
             </motion.a>
 
@@ -48,14 +48,14 @@ export default function FloatingCTA() {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05, x: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-[#FEE500] pr-6 pl-2 py-2 rounded-full shadow-2xl text-[#3C1E1E] transition-all"
+              className="group flex items-center gap-3 bg-[#FEE500] pr-5 pl-2 py-1.5 rounded-full shadow-2xl text-[#3C1E1E] transition-all"
             >
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
-                <MessageCircle size={24} fill="currentColor" />
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <MessageCircle size={18} fill="currentColor" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold opacity-60 leading-none mb-1">KakaoTalk</span>
-                <span className="text-sm font-bold leading-none">카카오톡 상담</span>
+                <span className="text-[9px] font-bold opacity-60 leading-none mb-0.5 uppercase">KakaoTalk</span>
+                <span className="text-xs font-bold leading-none">카카오톡 상담</span>
               </div>
             </motion.a>
           </>

@@ -3,7 +3,10 @@ import { MessageCircle, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const heroImages = [
-  "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MDNfNTAg/MDAxNzc1MTc2MjM2ODgw.ohNElcCPJ6rqGmp1ogT6wuEhx0XzglL7TQcW-YCIuSkg.G3kFf1a8d61pGGIaLXwUrjvHs_6Q2_d19fOrec-oYFog.JPEG/KakaoTalk_20260403_092957322.jpg?type=w1600"
+  "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MDNfMjIg/MDAxNzc1MTc5ODE4OTIw.vuBVghduEQCanAyvgzYS4E6oMPJqmrBtZZ1srJ9DOAAg.-tZ_2ZLEx5f9c6eTLhzef10t3RWBhJtoh82sS7tk58gg.PNG/G80.png?type=w1600",
+  "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MDNfNjcg/MDAxNzc1MTc5ODE4ODk1.kRu4hUD9DNxj21LEqNfT3L2HtBXjHyyyXVU0WPgjfvog.qAgreabdObPfdFrh6JDXpx3Ky0AuxFXF6UwO9GgrUIsg.PNG/EV6.png?type=w1600",
+  "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MDNfMTIw/MDAxNzc1MTc5ODE4OTI1.m7kd73u9aUOhtX54GL6-z_kEFgO7q_xi1yZGErztiG0g._oXuV99zEaHmyqYjzJNdXSrHrpKyb8_D9YAuxxpbAq8g.PNG/%EC%8F%98%EB%A0%8C%ED%86%A0.png?type=w1600",
+  "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MDNfMTcy/MDAxNzc1MTc5ODE4OTI1.InHj6GDdaw_3cJEyq79yTEOI3fhOu0GOb13A8sNjrEcg.6BB5NGQaPmwEe8XcMkGRu9AS_YHlEjc40csD9WCFm3cg.PNG/bmw5%EC%8B%9C%EB%A6%AC%EC%A6%88.png?type=w1600"
 ];
 
 export default function Hero() {
@@ -89,13 +92,13 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-                className="flex flex-wrap items-center justify-center gap-4"
+                className="flex flex-wrap items-center justify-center gap-3"
               >
-                <a href="https://open.kakao.com/me/yoohan7923" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FEE500] text-[#3C1E1E] text-sm font-bold uppercase tracking-widest hover:bg-[#F9E000] transition-all w-full sm:w-auto rounded-lg shadow-xl">
-                  <MessageCircle size={18} fill="currentColor" /> 카톡상담
+                <a href="https://open.kakao.com/me/yoohan7923" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#FEE500] text-[#3C1E1E] text-xs font-bold uppercase tracking-widest hover:bg-[#F9E000] transition-all w-full sm:w-auto rounded-lg shadow-xl">
+                  <MessageCircle size={16} fill="currentColor" /> 카톡상담
                 </a>
-                <a href="#quote" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-all w-full sm:w-auto rounded-lg shadow-xl">
-                  <FileText size={18} /> 견적받기
+                <a href="#quote" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-all w-full sm:w-auto rounded-lg shadow-xl">
+                  <FileText size={16} /> 견적받기
                 </a>
               </motion.div>
             </div>
